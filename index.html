@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: lightgray;
+      }
+      h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: auto;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        color: yellow;
+        background-color: black;
+        width: 40rem;
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-top: 5rem;
+      }
+      button {
+        padding: 1rem;
+        border-radius: 1rem;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: auto;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        margin-top: 5rem;
+        background-color: yellow;
+        color: black;
+        width: 20rem;
+        font-size: 2rem;
+      }
+    </style>
+  </head>
+  <body onload="thisDay()">
+    <h1 id="result"></h1>
+    <button onclick="thisDay()">Tekrar Dene</button>
+    <script>
+      const days = [
+        "pazartesi",
+        "salı",
+        "çarşamba",
+        "perşembe",
+        "cuma",
+        "cumartesi",
+        "pazar",
+      ];
+
+      let thisDay = () => {
+        let myDay = prompt("Lütfen bir gün giriniz");
+
+        let text = document.getElementById("result");
+        let day = myDay.toLocaleLowerCase();
+        switch (true) {
+          case day == days[5]:
+            text.innerText = "Bugün double live session var!";
+            break;
+          case day == days[0] || day == days[2] || day == days[3]:
+            text.innerText = "Bugün live session var!";
+            break;
+          case day == days[1] || day == days[4]:
+            text.innerText = "Bugün team work/workshop var!";
+            break;
+          case day == days[6]:
+            text.innerText = "Bugün tatil :-)";
+            break;
+          default:
+            text.innerText =
+              "Hatalı giriş yaptınız " + "\n" + myDay + " diye bir gün yoktur";
+        }
+      };
+    </script>
+  </body>
+</html>
